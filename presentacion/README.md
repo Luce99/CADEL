@@ -1,4 +1,4 @@
-Test
+Proyecto CADEL
 
 
 ELIOTT AMAYA DOMINGUEZ
@@ -7,6 +7,8 @@ Proyecto CADEL
 
 CRISTINA MARIA MEJIA FUENTES
 Proyecto CADEL
+
+JHON ALEXANDER VALLEJO BRICEÑO
 
 Lucero Alexandra Mojica Tabares
 Proyecto CADEL
