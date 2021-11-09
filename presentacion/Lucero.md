@@ -1,1 +1,0 @@
-Mi nombre es Lucero Mojica, soy integrante del grupo 1 llamado CADEL
