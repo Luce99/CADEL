@@ -4,5 +4,5 @@ Test
 CRISTINA MARIA MEJIA FUENTES
 Proyecto CADEL
 
-Lucero Alexandra Mojica Taabres
+Lucero Alexandra Mojica Tabares
 Proyecto CADEL
