@@ -2,7 +2,7 @@ Proyecto CADEL
 
 CRISTINA MARIA MEJIA FUENTES
 
-LUCERO ALEXANDRA MOJICA TABARES
+LUCERO ALEXANDRA MOJICA TABARES -Scrum master, cocinera egresada de la Mariano Moreno, tengo mucho deseo de aprender y dar lo mejor de mí para llevar a cabo este proyecto.
 
 ELIOTT AMAYA DOMINGUEZ
 
