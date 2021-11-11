@@ -10,4 +10,4 @@ JHON ALEXANDER VALLEJO BRICEÑO - Database Administration, Resido en la ciudad d
 
 DANIEL GUARÍN GARCÍA - Desarrollador, Soy Ingeniero Ambiental, Egresado de la UdeM, actualmente con mucho deseo de dar un nuevo rumbo a mi vida, por lo que busco salir de mi zona de confort y afrontar estos nuevos retos retos 😎
 
-EDUARDO ENRIQUE SERRANO CEBALLOS - Psicologo UNIMINUTO. 
+EDUARDO ENRIQUE SERRANO CEBALLOS - Desarrollador - Psicologo UNIMINUTO. Con muchas ganas de seguir aprendiendo este mundo de programacion y aportar para sacar adelante este proyecto. 
