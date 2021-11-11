@@ -1,6 +1,6 @@
 ﻿Proyecto CADEL
 
-CRISTINA MARIA MEJIA FUENTES
+CRISTINA MARIA MEJIA FUENTES - Analista, Administradora Logistica y la cocinera de la casa. Amante de la tecnologia. Aprendiendo demasiado con MINTIC
 
 LUCERO ALEXANDRA MOJICA TABARES -Scrum master, cocinera egresada de la Mariano Moreno, tengo mucho deseo de aprender y dar lo mejor de mí para llevar a cabo este proyecto.
 
@@ -11,3 +11,4 @@ JHON ALEXANDER VALLEJO BRICEÑO - Database Administration, Resido en la ciudad d
 DANIEL GUARÍN GARCÍA - Desarrollador, Soy Ingeniero Ambiental, Egresado de la UdeM, actualmente con mucho deseo de dar un nuevo rumbo a mi vida, por lo que busco salir de mi zona de confort y afrontar estos nuevos retos retos 😎
 
 EDUARDO ENRIQUE SERRANO CEBALLOS - Desarrollador - Psicologo UNIMINUTO. Con muchas ganas de seguir aprendiendo este mundo de programacion y aportar para sacar adelante este proyecto. 
+ 
