@@ -9,11 +9,11 @@ const inscripcionSchema = new Schema({
         required: true
     },
     fechaIngreso: {
-        type: String,
+        type: Date,
         required: true
     },
     fechaEgreso : {
-        type: String,
+        type: Date,
         required: true
     },
     estudiante: [{

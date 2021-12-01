@@ -1,6 +1,10 @@
 const {gql} = require("apollo-server-express")
 
+
 const projectType = gql`
+
+scalar DateTime
+
 type User{
     _id: ID!
     nombre: String
@@ -17,11 +21,11 @@ type Project {
     nombre: String
     objetivosGenerales: String
     objetivosEspecificos: String
-    fechaInicio: String
-    fechaTerminacion: String
+    fechaInicio: DateTime
+    fechaTerminacion: DateTime
     estadoProyecto: String
     faseProyecto: String
-    presupuesto: String
+    presupuesto: Float
     owner: ID
 }
 type Query {
@@ -33,11 +37,11 @@ createProject(
     nombre: String
     objetivosGenerales: String
     objetivosEspecificos: String
-    fechaInicio: String
-    fechaTerminacion: String
+    fechaInicio: DateTime
+    fechaTerminacion: DateTime
     estadoProyecto: String
     faseProyecto: String
-    presupuesto: String
+    presupuesto: Float
     owner: ID
     ): Project
 updateProject (
@@ -45,11 +49,11 @@ updateProject (
     nombre: String
     objetivosGenerales: String
     objetivosEspecificos: String
-    fechaInicio: String
-    fechaTerminacion: String
+    fechaInicio: DateTime
+    fechaTerminacion: DateTime
     estadoProyecto: String
     faseProyecto: String
-    presupuesto: String
+    presupuesto: Float
     ): Project
 }
 `;

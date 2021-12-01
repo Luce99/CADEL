@@ -17,11 +17,11 @@ const projectSchema = new Schema ({
         required: true
     },
     fechaInicio: {
-        type: String,
+        type: Date,
         required: true
     },
     fechaTerminacion: {
-        type: String,
+        type: Date,
         required: true
     },
     estadoProyecto: {

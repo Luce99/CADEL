@@ -1,6 +1,8 @@
 const {gql} = require("apollo-server-express")
-
 const inscripcionType = gql`
+
+scalar DateTime
+
 type User{
     _id: ID!
     nombre: String
@@ -17,18 +19,18 @@ type Project {
     nombre: String
     objetivosGenerales: String
     objetivosEspecificos: String
-    fechaInicio: String
-    fechaTerminacion: String
+    fechaInicio: DateTime
+    fechaTerminacion: DateTime
     estadoProyecto: String
     faseProyecto: String
-    presupuesto: String
+    presupuesto: Float
     owner: ID
 }
 type Inscripcion {
     _id: ID!
     estadoInscripcion: String
-    fechaIngreso: String
-    fechaEgreso: String
+    fechaIngreso: DateTime
+    fechaEgreso: DateTime
     estudiante: ID
     projects: ID
 }
@@ -39,16 +41,16 @@ type Query {
 type Mutation {
 createInscripcion(
     estadoInscripcion: String
-    fechaIngreso: String
-    fechaEgreso: String
+    fechaIngreso: DateTime
+    fechaEgreso: DateTime
     estudiante: ID
     projects: ID
     ): Inscripcion
 updateInscripcion (
     _id: ID!
     estadoInscripcion: String
-    fechaIngreso: String
-    fechaEgreso: String
+    fechaIngreso: DateTime
+    fechaEgreso: DateTime
     estudiante: ID
     projects: ID
     ): Inscripcion

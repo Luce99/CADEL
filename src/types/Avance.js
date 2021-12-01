@@ -1,6 +1,9 @@
 const {gql} = require("apollo-server-express")
 
 const avancesType = gql`
+
+scalar DateTime
+
 type User{
     _id: ID!
     nombre: String
@@ -17,16 +20,16 @@ type Project {
     nombre: String
     objetivosGenerales: String
     objetivosEspecificos: String
-    fechaInicio: String
-    fechaTerminacion: String
+    fechaInicio: DateTime
+    fechaTerminacion: DateTime
     estadoProyecto: String
     faseProyecto: String
-    presupuesto: String
+    presupuesto: Float
     owner: ID
 }
 type Avances {
     _id: ID!
-    fechaAvance: String
+    fechaAvance: DateTime
     descripcion: String
     observacionesLider: String
     estudiante: ID
@@ -38,7 +41,7 @@ type Query {
 }
 type Mutation {
 createAvances(
-    fechaAvance: String
+    fechaAvance: DateTime
     descripcion: String
     observacionesLider: String
     estudiante: ID
@@ -46,7 +49,7 @@ createAvances(
     ): Avances
 updateAvances (
     _id: ID!
-    fechaAvance: String
+    fechaAvance: DateTime
     descripcion: String
     observacionesLider: String
     estudiante: ID

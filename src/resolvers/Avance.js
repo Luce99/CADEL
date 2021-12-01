@@ -1,6 +1,7 @@
 const avancesService = require ("../services/Avance")
 
 const avancesResolvers = {
+
     Query:{
         getAvances: async(parent, args)=> {
             let avances = avancesService.getAvances()
