@@ -13,7 +13,7 @@ type User{
     tipoUsuario: String!
     estado: String!
     correo: String!
-    constrasena: String!
+    contrasena: String!
     projects: [Project!]
 }
 type Project {

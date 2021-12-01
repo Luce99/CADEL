@@ -12,7 +12,7 @@ type User{
     tipoUsuario: String!
     estado: String!
     correo: String!
-    constrasena: String!
+    contrasena: String!
     projects: [Project!]
 }
 type Project{
@@ -39,7 +39,7 @@ type Mutation {
         tipoUsuario: String!
         estado: String!
         correo: String!
-        constrasena: String!
+        contrasena: String!
         ): User
         updateUser(_id: ID!
             nombre: String!
@@ -48,7 +48,7 @@ type Mutation {
             tipoUsuario: String!
             estado: String!
             correo: String!
-            constrasena: String!
+            contrasena: String!
             ): User
 }
 `;
