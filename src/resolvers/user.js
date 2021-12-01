@@ -3,7 +3,7 @@ const userService = require ("../services/user")
 const userResolvers = {
     Query:{
         getUsers: async(parent,args)=>{
-            let users = await userService.getUsers()
+            let users =  await userService.getUsers()
             return users
         },
         getUserById: async (parent,args)=>{
@@ -17,7 +17,7 @@ const userResolvers = {
             return user
         },
         updateUser: async(parent, args) => {
-            let userUpdate = await userService.updateUser(args._id, args)
+            let userUpdate = userService.updateUser(args._id, args)
             return userUpdate
         }
     }

@@ -21,12 +21,33 @@ getProjectById = async(projectId)=>{
 
 updateProject = async(projectId, project)=>{
     let newProject = await Project.findByIdAndUpdate(projectId, project,{new:true})
+    await userService.updateProject(project['owner'], newProject['_id'])
     return newProject
+}
+
+updateAvances = async(projectId, AvancesId)=>{
+    let project = await Project.findByIdAndUpdate(projectId,{
+        $push:{
+            avances:AvancesId
+        }
+    })
+    return project
+}
+
+updateInscripcion = async(projectId, inscripcionId)=>{
+    let project = await Project.findByIdAndUpdate(projectId,{
+        $push:{
+            inscripcion:inscripcionId
+        }
+    })
+    return project
 }
 
 module.exports = {
     createProject,
     getProjects,
     getProjectById,
-    updateProject
+    updateProject,
+    updateAvances,
+    updateInscripcion
 }

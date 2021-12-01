@@ -16,14 +16,14 @@ const avancesSchema = new Schema({
         type: String,
         required: true
     },
-    estudiante: [{
+    estudiante: {
         type: Schema.Types.ObjectId,
         ref: "user"
-    }],
-    projects: [{
+    },
+    projects: {
         type: Schema.Types.ObjectId,
         ref: "project"
-    }]
+    }
 })
 
 module.exports = mongoose.model("avances", avancesSchema)

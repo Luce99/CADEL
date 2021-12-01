@@ -8,7 +8,7 @@ createAvances = async(avances) =>{
     created_avances = await avancesInstance.save()
     await userService.updateAvances(avances['estudiante'], created_avances['_id'])
     await projectService.updateAvances(avances['projects'], created_avances['_id'])
-    return created_project
+    return created_avances
 }
 
 getAvances = async() => {
@@ -23,6 +23,8 @@ getAvancesById = async(avancesId)=>{
 
 updateAvances = async(avancesId, avances)=>{
     let newAvances = await Avances.findByIdAndUpdate(avancesId, avances,{new:true})
+    await userService.updateAvances(avances['estudiante'], newAvances['_id'])
+    await projectService.updateAvances(avances['projects'], newAvances['_id'])
     return newAvances
 }
 

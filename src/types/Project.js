@@ -7,26 +7,26 @@ scalar DateTime
 
 type User{
     _id: ID!
-    nombre: String
-    apellido: String
-    identificacion: String
-    tipoUsuario: String
-    estado: String
+    nombre: String!
+    apellido: String!
+    identificacion: String!
+    tipoUsuario: String!
+    estado: String!
     correo: String!
-    constrasena: String 
-    projects: [Project]
+    constrasena: String!
+    projects: [Project!]
 }
 type Project {
     _id: ID!
-    nombre: String
-    objetivosGenerales: String
-    objetivosEspecificos: String
-    fechaInicio: DateTime
-    fechaTerminacion: DateTime
-    estadoProyecto: String
-    faseProyecto: String
-    presupuesto: Float
-    owner: ID
+    nombre: String!
+    objetivosGenerales: String!
+    objetivosEspecificos: String!
+    fechaInicio: DateTime!
+    fechaTerminacion: DateTime!
+    estadoProyecto: String!
+    faseProyecto: String!
+    presupuesto: Float!
+    owner: ID!
 }
 type Query {
     getProjects: [Project]
@@ -34,26 +34,27 @@ type Query {
 }
 type Mutation {
 createProject(
-    nombre: String
-    objetivosGenerales: String
-    objetivosEspecificos: String
-    fechaInicio: DateTime
-    fechaTerminacion: DateTime
-    estadoProyecto: String
-    faseProyecto: String
-    presupuesto: Float
-    owner: ID
+    nombre: String!
+    objetivosGenerales: String!
+    objetivosEspecificos: String!
+    fechaInicio: DateTime!
+    fechaTerminacion: DateTime!
+    estadoProyecto: String!
+    faseProyecto: String!
+    presupuesto: Float!
+    owner: ID!
     ): Project
 updateProject (
     _id: ID!
-    nombre: String
-    objetivosGenerales: String
-    objetivosEspecificos: String
-    fechaInicio: DateTime
-    fechaTerminacion: DateTime
-    estadoProyecto: String
-    faseProyecto: String
-    presupuesto: Float
+    nombre: String!
+    objetivosGenerales: String!
+    objetivosEspecificos: String!
+    fechaInicio: DateTime!
+    fechaTerminacion: DateTime!
+    estadoProyecto: String!
+    faseProyecto: String!
+    presupuesto: Float!
+    owner: ID!
     ): Project
 }
 `;

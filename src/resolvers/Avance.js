@@ -1,5 +1,4 @@
 const avancesService = require ("../services/Avance")
-
 const avancesResolvers = {
 
     Query:{

@@ -23,6 +23,8 @@ getInscripcionById = async(inscripcionId)=>{
 
 updateInscripcion = async(inscripcionId, inscripcion)=>{
     let newInscripcion = await Inscripcion.findByIdAndUpdate(inscripcionId, inscripcion,{new:true})
+    await userService.updateInscripcion(inscripcion['estudiante'], newInscripcion['_id'])
+    await projectService.updateInscripcion(inscripcion['projects'], newInscripcion['_id'])
     return newInscripcion
 }
 
