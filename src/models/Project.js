@@ -33,7 +33,7 @@ const projectSchema = new Schema ({
         required: true
     },
     presupuesto: {
-        type: String,
+        type: Number,
         required: true
     },
     owner:{
