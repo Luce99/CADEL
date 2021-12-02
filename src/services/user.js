@@ -21,6 +21,11 @@ updateUser = async(userId, user)=>{
     return new_user
 }
 
+deleteUser = async(userId, user, callback)=>{
+    let userd = User.findByIdAndDelete(userId, user, callback, {new: true})
+    return userd
+}
+
 updateProject = async(userId, projectId)=>{
     let user = await User.findByIdAndUpdate(userId,{
         $push:{
@@ -53,6 +58,7 @@ module.exports = {
     getUsers,
     getUserById,
     updateUser,
+    deleteUser,
     updateProject,
     updateAvances,
     updateInscripcion

@@ -19,7 +19,11 @@ const userResolvers = {
         updateUser: async(parent, args) => {
             let userUpdate = userService.updateUser(args._id, args)
             return userUpdate
-        }
+        },
+        deleteUser: async(parent, args) =>{
+            let userDelete = userService.deleteUser(args._id, args)
+            return userDelete
+        },
     }
 }
 
