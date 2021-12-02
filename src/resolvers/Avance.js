@@ -19,6 +19,10 @@ const avancesResolvers = {
         updateAvances: async (parent, args)=> {
             let avances = avancesService.updateAvances(args._id,args)
             return avances
+        },
+        deleteAvances: async(parent, args) =>{
+            let avancesDelete = avancesService.deleteAvances(args._id, args)
+            return avancesDelete
         }
     }
 }

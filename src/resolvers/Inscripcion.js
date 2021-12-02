@@ -19,6 +19,10 @@ const inscripcionResolvers = {
         updateInscripcion: async (parent, args)=> {
             let inscripcion = inscripcionService.updateInscripcion(args._id,args)
             return inscripcion
+        },
+        deleteInscripcion: async(parent, args) =>{
+            let inscripcionDelete = inscripcionService.deleteInscripcion(args._id, args)
+            return inscripcionDelete
         }
     }
 }

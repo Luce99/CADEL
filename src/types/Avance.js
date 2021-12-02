@@ -49,12 +49,21 @@ createAvances(
     ): Avances
 updateAvances (
     _id: ID!
-    fechaAvance: DateTime!
-    descripcion: String!
-    observacionesLider: String!
-    estudiante: ID!
-    projects: ID!
+    fechaAvance: DateTime
+    descripcion: String
+    observacionesLider: String
+    estudiante: ID
+    projects: ID
     ): Avances
+deleteAvances (
+    _id: ID!
+    fechaAvance: DateTime
+    descripcion: String
+    observacionesLider: String
+    estudiante: ID
+    projects: ID
+    ): Avances
+
 }
 `;
 

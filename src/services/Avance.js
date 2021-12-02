@@ -21,6 +21,11 @@ getAvancesById = async(avancesId)=>{
     return avances
 }
 
+deleteAvances = async(avancesId, avances, callback)=>{
+    let avancesd = Avances.findByIdAndDelete(avancesId, avances, callback, {new: true})
+    return avancesd
+}
+
 updateAvances = async(avancesId, avances)=>{
     let newAvances = await Avances.findByIdAndUpdate(avancesId, avances,{new:true})
     await userService.updateAvances(avances['estudiante'], newAvances['_id'])
@@ -32,5 +37,6 @@ module.exports = {
     createAvances,
     getAvances,
     getAvancesById,
+    deleteAvances,
     updateAvances
 }

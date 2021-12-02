@@ -43,13 +43,13 @@ type Mutation {
         ): User
     updateUser(
         _id: ID!
-        nombre: String!
-        apellido: String!
-        identificacion: String!
-        tipoUsuario: String!
-        estado: String!
-        correo: String!
-        contrasena: String!
+        nombre: String
+        apellido: String
+        identificacion: String
+        tipoUsuario: String
+        estado: String
+        correo: String
+        contrasena: String
         ): User
     deleteUser(
         _id: ID!

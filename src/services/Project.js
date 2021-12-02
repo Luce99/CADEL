@@ -19,6 +19,11 @@ getProjectById = async(projectId)=>{
     return project
 }
 
+deleteProject = async(projectId, project, callback)=>{
+    let projectd = Project.findByIdAndDelete(projectId, project, callback, {new: true})
+    return projectd
+}
+
 updateProject = async(projectId, project)=>{
     let newProject = await Project.findByIdAndUpdate(projectId, project,{new:true})
     await userService.updateProject(project['owner'], newProject['_id'])
@@ -47,6 +52,7 @@ module.exports = {
     createProject,
     getProjects,
     getProjectById,
+    deleteProject,
     updateProject,
     updateAvances,
     updateInscripcion

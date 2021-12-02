@@ -46,17 +46,30 @@ createProject(
     ): Project
 updateProject (
     _id: ID!
-    nombre: String!
-    objetivosGenerales: String!
-    objetivosEspecificos: String!
-    fechaInicio: DateTime!
-    fechaTerminacion: DateTime!
-    estadoProyecto: String!
-    faseProyecto: String!
-    presupuesto: Float!
-    owner: ID!
+    nombre: String
+    objetivosGenerales: String
+    objetivosEspecificos: String
+    fechaInicio: DateTime
+    fechaTerminacion: DateTime
+    estadoProyecto: String
+    faseProyecto: String
+    presupuesto: Float
+    owner: ID
+    ): Project
+deleteProject (
+    _id: ID!
+    nombre: String
+    objetivosGenerales: String
+    objetivosEspecificos: String
+    fechaInicio: DateTime
+    fechaTerminacion: DateTime
+    estadoProyecto: String
+    faseProyecto: String
+    presupuesto: Float
+    owner: ID
     ): Project
 }
+
 `;
 
 module.exports = {projectType}

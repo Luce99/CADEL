@@ -48,11 +48,19 @@ createInscripcion(
     ): Inscripcion
 updateInscripcion (
     _id: ID!
-    estadoInscripcion: String!
-    fechaIngreso: DateTime!
-    fechaEgreso: DateTime!
-    estudiante: ID!
-    projects: ID!
+    estadoInscripcion: String
+    fechaIngreso: DateTime
+    fechaEgreso: DateTime
+    estudiante: ID
+    projects: ID
+    ): Inscripcion
+deleteInscripcion (
+    _id: ID!
+    estadoInscripcion: String
+    fechaIngreso: DateTime
+    fechaEgreso: DateTime
+    estudiante: ID
+    projects: ID
     ): Inscripcion
 }
 `;

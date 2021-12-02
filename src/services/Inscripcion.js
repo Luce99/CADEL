@@ -21,6 +21,11 @@ getInscripcionById = async(inscripcionId)=>{
     return inscripcion
 }
 
+deleteInscripcion = async(inscripcionId, inscripcion, callback)=>{
+    let inscripciond = Inscripcion.findByIdAndDelete(inscripcionId, inscripcion, callback, {new: true})
+    return inscripciond
+}
+
 updateInscripcion = async(inscripcionId, inscripcion)=>{
     let newInscripcion = await Inscripcion.findByIdAndUpdate(inscripcionId, inscripcion,{new:true})
     await userService.updateInscripcion(inscripcion['estudiante'], newInscripcion['_id'])
@@ -32,5 +37,6 @@ module.exports = {
     createInscripcion,
     getInscripcion,
     getInscripcionById,
+    deleteInscripcion,
     updateInscripcion
 }
