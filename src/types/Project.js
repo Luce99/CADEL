@@ -16,6 +16,14 @@ type User{
     contrasena: String!
     projects: [Project!]
 }
+type Avances {
+    _id: ID!
+    fechaAvance: DateTime!
+    descripcion: String!
+    observacionesLider: String!
+    estudiante: ID!
+    projects: ID!
+}
 type Project {
     _id: ID!
     nombre: String!
@@ -26,6 +34,7 @@ type Project {
     estadoProyecto: String!
     faseProyecto: String!
     presupuesto: Float!
+    avances: [Avances!]
     owner: ID!
 }
 type Query {

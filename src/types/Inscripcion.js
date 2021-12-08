@@ -24,6 +24,7 @@ type Project {
     estadoProyecto: String!
     faseProyecto: String!
     presupuesto: Float!
+    avances: [Avances!]
     owner: ID!
 }
 type Inscripcion {

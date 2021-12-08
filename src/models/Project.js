@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const User = require("./user")
+const Avance = require("./Avance")
 
 
 const projectSchema = new Schema ({
@@ -36,6 +37,10 @@ const projectSchema = new Schema ({
         type: Number,
         required: true
     },
+    avances: [{
+        type: Schema.Types.ObjectId,
+        ref: "avances"
+    }],
     owner:{
         type: Schema.Types.ObjectId,
         ref: "user"

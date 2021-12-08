@@ -1,7 +1,6 @@
 const Project = require('../models/Project')
 const userService = require('./user')
 
-
 createProject = async(project) =>{
     let projectInstance = new Project(project)
     created_project = await projectInstance.save()
@@ -10,13 +9,14 @@ createProject = async(project) =>{
 }
 
 getProjects = async() => {
-    let projects = await Project.find({})
+    let projects = await Project.find({}).populate("avances")
     return projects
 }
 
 getProjectById = async(projectId)=>{
     let project = await Project.findById(projectId).exec()
-    return project
+    let projects = await Project.findById(projectId).populate("avances")
+    return project, projects
 }
 
 deleteProject = async(projectId, project, callback)=>{
