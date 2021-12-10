@@ -1,3 +1,4 @@
+const user = require("../models/user")
 const userService = require ("../services/user")
 
 const userResolvers = {
@@ -8,6 +9,10 @@ const userResolvers = {
         },
         getUserById: async (parent,args)=>{
             let user = await userService.getUserById(args._id)
+            return user
+        },
+        login: async (parent, args) => {
+            const user = await userService.login(args)
             return user
         }
     },
@@ -23,7 +28,7 @@ const userResolvers = {
         deleteUser: async(parent, args) =>{
             let userDelete = userService.deleteUser(args._id, args)
             return userDelete
-        },
+        }
     }
 }
 

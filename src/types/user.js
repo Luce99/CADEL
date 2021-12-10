@@ -15,6 +15,7 @@ type User{
     contrasena: String!
     projects: [Project!]
 }
+
 type Project{
     _id: ID!
     nombre: String!
@@ -28,9 +29,11 @@ type Project{
     avances: [Avances!]
     owner: ID!
 }
+
 type Query {
     getUsers: [User]
-    getUserById(_id:String): User
+    getUserById(_id:String!): User
+    login(correo: String!, contrasena: String!): User
 }
 type Mutation {
     createUser(
@@ -62,7 +65,6 @@ type Mutation {
         correo: String
         contrasena: String
         ): User
-
 }
 `;
 
