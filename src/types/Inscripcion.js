@@ -41,9 +41,9 @@ type Query {
 }
 type Mutation {
 createInscripcion(
-    estadoInscripcion: String!
-    fechaIngreso: DateTime!
-    fechaEgreso: DateTime!
+    estadoInscripcion: String
+    fechaIngreso: DateTime
+    fechaEgreso: DateTime
     estudiante: ID!
     projects: ID!
     ): Inscripcion

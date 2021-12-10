@@ -42,9 +42,9 @@ type Query {
 }
 type Mutation {
 createAvances(
-    fechaAvance: DateTime!
+    fechaAvance: DateTime
     descripcion: String!
-    observacionesLider: String!
+    observacionesLider: String
     estudiante: ID!
     projects: ID!
     ): Avances

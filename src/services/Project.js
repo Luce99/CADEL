@@ -1,10 +1,20 @@
 const Project = require('../models/Project')
 const userService = require('./user')
 
-createProject = async(project) =>{
-    let projectInstance = new Project(project)
+createProject = async(args) =>{
+    let projectInstance = new Project({
+        nombre: args.nombre,
+        objetivosGenerales: args.objetivosGenerales,
+        objetivosEspecificos: args.objetivosEspecificos,
+        fechaInicio: args.fechaInicio,
+        fechaTerminacion: args.fechaTerminacion,
+        estadoProyecto: 'Inactivo',
+        faseProyecto: 'null',
+        presupuesto: args.presupuesto,
+        owner: args.owner
+    })
     created_project = await projectInstance.save()
-    await userService.updateProject(project['owner'], created_project['_id'])
+    await userService.updateProject(args['owner'], created_project['_id'])
     return created_project
 }
 

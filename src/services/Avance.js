@@ -1,13 +1,19 @@
 const Avances = require('../models/Avance')
 const userService = require('./user')
 const projectService = require('./Project')
+const fechaHora = new Date();
 
-
-createAvances = async(avances) =>{
-    let avancesInstance = new Avances(avances)
+createAvances = async(args) =>{
+    let avancesInstance = new Avances({
+        fechaAvance: fechaHora.getTime(),
+        descripcion: args.descripcion,
+        observacionesLider: 'null',
+        estudiante: args.estudiante,
+        projects: args.projects
+    })
     created_avances = await avancesInstance.save()
-    await userService.updateAvances(avances['estudiante'], created_avances['_id'])
-    await projectService.updateAvances(avances['projects'], created_avances['_id'])
+    await userService.updateAvances(args['estudiante'], created_avances['_id'])
+    await projectService.updateAvances(args['projects'], created_avances['_id'])
     return created_avances
 }
 

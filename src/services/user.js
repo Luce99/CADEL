@@ -14,7 +14,7 @@ createUser = async (args) => {
         apellido: args.apellido,
         identificacion: args.identificacion,
         tipoUsuario: args.tipoUsuario,
-        estado: args.estado,
+        estado: 'pendiente',
         correo: args.correo,
         contrasena: hashedPassword
         })

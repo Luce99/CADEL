@@ -3,11 +3,17 @@ const userService = require('./user')
 const projectService = require('./Project')
 
 
-createInscripcion = async(inscripcion) =>{
-    let inscripcionInstance = new Inscripcion(inscripcion)
+createInscripcion = async(args) =>{
+    let inscripcionInstance = new Inscripcion({
+        estadoInscripcion: 'Pendiente',
+        fechaIngreso: 'null',
+        fechaEgreso: 'null',
+        estudiante: args.estudiante,
+        projects: args.projects
+    })
     created_inscripcion = await inscripcionInstance.save()
-    await userService.updateInscripcion(inscripcion['estudiante'], created_inscripcion['_id'])
-    await projectService.updateInscripcion(inscripcion['projects'], created_inscripcion['_id'])
+    await userService.updateInscripcion(args['estudiante'], created_inscripcion['_id'])
+    await projectService.updateInscripcion(args['projects'], created_inscripcion['_id'])
     return created_inscripcion
 }
 

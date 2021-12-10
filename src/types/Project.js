@@ -48,8 +48,8 @@ createProject(
     objetivosEspecificos: String!
     fechaInicio: DateTime!
     fechaTerminacion: DateTime!
-    estadoProyecto: String!
-    faseProyecto: String!
+    estadoProyecto: String
+    faseProyecto: String
     presupuesto: Float!
     owner: ID!
     ): Project

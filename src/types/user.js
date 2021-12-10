@@ -41,7 +41,7 @@ type Mutation {
         apellido: String!
         identificacion: String!
         tipoUsuario: String!
-        estado: String!
+        estado: String
         correo: String!
         contrasena: String!
         ): User
