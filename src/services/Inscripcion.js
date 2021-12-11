@@ -1,13 +1,12 @@
 const Inscripcion = require('../models/Inscripcion')
 const userService = require('./user')
 const projectService = require('./Project')
-
+const fechaHora = new Date();
 
 createInscripcion = async(args) =>{
     let inscripcionInstance = new Inscripcion({
         estadoInscripcion: 'Pendiente',
-        fechaIngreso: 'null',
-        fechaEgreso: 'null',
+        fechaIngreso: fechaHora.getTime(),
         estudiante: args.estudiante,
         projects: args.projects
     })
@@ -32,10 +31,10 @@ deleteInscripcion = async(inscripcionId, inscripcion, callback)=>{
     return inscripciond
 }
 
-updateInscripcion = async(inscripcionId, inscripcion)=>{
-    let newInscripcion = await Inscripcion.findByIdAndUpdate(inscripcionId, inscripcion,{new:true})
-    await userService.updateInscripcion(inscripcion['estudiante'], newInscripcion['_id'])
-    await projectService.updateInscripcion(inscripcion['projects'], newInscripcion['_id'])
+updateInscripcion = async(inscripcionId, args)=>{
+    let newInscripcion = await Inscripcion.findByIdAndUpdate(inscripcionId, args,{new:true})
+    await userService.updateInscripcion(args['estudiante'], newInscripcion['_id'])
+    await projectService.updateInscripcion(args['projects'], newInscripcion['_id'])
     return newInscripcion
 }
 

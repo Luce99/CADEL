@@ -14,7 +14,7 @@ const inscripcionSchema = new Schema({
     },
     fechaEgreso : {
         type: Date,
-        required: true
+        required: false
     },
     estudiante: {
         type: Schema.Types.ObjectId,
