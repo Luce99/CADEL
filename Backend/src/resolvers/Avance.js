@@ -3,8 +3,8 @@ const avancesResolvers = {
 
     Query:{
         getAvances: async(parent, args)=> {
-            let avances = avancesService.getAvances()
-            return avances
+            let avance = avancesService.getAvances()
+            return avance
         },
         getAvancesById: async(parent, args)=>{
             let avances = avancesService.getAvancesById(args._id)

@@ -33,6 +33,14 @@ deleteInscripcion = async(inscripcionId, inscripcion, callback)=>{
 
 updateInscripcion = async(inscripcionId, args)=>{
     let newInscripcion = await Inscripcion.findByIdAndUpdate(inscripcionId, args,{new:true})
+    //if (args.estadoInscripcion != 'Pendiente')
+    //{
+        //if (args.estadoInscripcion == 'Aceptada'|| args.estadoInscripcion == 'aceptada'){
+            //args.fechaIngreso = fechaHora.getTime()
+        //}
+        //if (args.estadoInscripcion == 'Rechazada' || args.estadoInscripcion== 'rechazada'){
+            //args.fechaEgreso = fechaHora.getTime()
+        //}
     await userService.updateInscripcion(args['estudiante'], newInscripcion['_id'])
     await projectService.updateInscripcion(args['projects'], newInscripcion['_id'])
     return newInscripcion

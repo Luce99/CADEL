@@ -3,9 +3,13 @@ const mongoose = require('mongoose')
 const {ApolloServer} = require("apollo-server-express")
 const {resolvers} = require("./resolvers")
 const {types} = require("./types")
-
+const cors = require('cors');
 
 const app = express()
+app.use(cors());
+app.use(express.json());
+
+
 const server = new ApolloServer({
     typeDefs: types,
     resolvers: resolvers
