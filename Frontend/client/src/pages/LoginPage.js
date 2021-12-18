@@ -1,16 +1,39 @@
-import { useLocation } from "react-router-dom";
-import useAuth from "../auth/useAuth"
+import React from "react";
+import { Container } from "react-bootstrap";
+import Signin from "./login/signin";
+import Signup from "./login/signup";
 
-const userCredentials ={};
+class LoginPage extends React.Component {
 
-export default function LoginPage(){
-    const location = useLocation();
-    const {login} = useAuth();
+    state={
+        showLogin:true,
+        showRegister:false,        
+    }
 
-    return (
-        <div>
-            <h1>LoginPage</h1>
-            <button onClick={() =>login(userCredentials, location.state?.from)}>Iniciar sesión</button>
-        </div>
-    )
+    showRegister =(ev)=>{
+        ev.preventDefault()
+        this.setState({showLogin:false, showRegister:true})
+    }
+
+    showLogin =(ev)=>{
+        ev.preventDefault()
+        this.setState({showLogin:true, showRegister:false})
+    }
+
+    render() {
+
+        const {showLogin,showRegister}=this.state;
+
+        return (
+            <Container>
+            {showLogin && <Signin handleClick={this.showRegister}/>}
+            {showRegister && <Signup handleClick={this.showLogin}/>}
+            </Container>
+
+
+
+        )
+    }
 }
+
+export default LoginPage

@@ -7,6 +7,7 @@ createInscripcion = async(args) =>{
     let inscripcionInstance = new Inscripcion({
         estadoInscripcion: 'Pendiente',
         fechaIngreso: fechaHora.getTime(),
+        fechaEgreso: fechaHora.getTime(),
         estudiante: args.estudiante,
         projects: args.projects
     })

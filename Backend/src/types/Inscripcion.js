@@ -32,8 +32,8 @@ type Inscripcion {
     estadoInscripcion: String!
     fechaIngreso: DateTime!
     fechaEgreso: DateTime!
-    estudiante: ID!
-    projects: ID!
+    estudiante: String!
+    projects: String!
 }
 type Query {
     getInscripcion: [Inscripcion]
@@ -44,24 +44,24 @@ createInscripcion(
     estadoInscripcion: String
     fechaIngreso: DateTime
     fechaEgreso: DateTime
-    estudiante: ID!
-    projects: ID!
+    estudiante: String!
+    projects: String!
     ): Inscripcion
 updateInscripcion (
     _id: ID!
     estadoInscripcion: String
     fechaIngreso: DateTime
     fechaEgreso: DateTime
-    estudiante: ID
-    projects: ID
+    estudiante: String
+    projects: String
     ): Inscripcion
 deleteInscripcion (
     _id: ID!
     estadoInscripcion: String
     fechaIngreso: DateTime
     fechaEgreso: DateTime
-    estudiante: ID
-    projects: ID
+    estudiante: String
+    projects: String
     ): Inscripcion
 }
 `;

@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {ApolloClient, InMemoryCache, HttpLink, gql} from '@apollo/client'
+import {ApolloClient, ApolloProvider, InMemoryCache, HttpLink} from '@apollo/client'
 
 
 const client = new ApolloClient({
@@ -14,30 +14,11 @@ const client = new ApolloClient({
   })
 })
 
-const query = gql`
-query {
-  getUsers {
-    nombre
-    apellido
-    identificacion
-    tipoUsuario
-    estado
-    correo
-    projects{
-      nombre
-    }
-  }
-}`
-
-client.query({query})
-  .then(res => {
-    console.log(res.data)
-  })
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ApolloProvider client={client}>
     <App />
-  </React.StrictMode>,
+  </ApolloProvider>,
   document.getElementById('root')
 );
 

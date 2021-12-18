@@ -11,6 +11,8 @@ import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
 import roles from '../helpers/roles'
 import routes from '../helpers/routes'
+import InscriptionPage from '../pages/InscriptionPage'
+
 
 export default function AppRouter(){
     return (
@@ -18,9 +20,11 @@ export default function AppRouter(){
               <PublicRoute exact path= {routes.home} component={HomePage}/>
               <PublicRoute exact path={routes.login} component={LoginPage}/>
               <PublicRoute exact path={routes.register} component={RegisterPage}/>
+            
 
               <PrivateRoute exact path={routes.account} component={AccountPage} />
               <PrivateRoute exact path={routes.projects} component={ProjectsPage} />
+              <PrivateRoute exact path={routes.InscriptionPage} component={InscriptionPage}/>
               <PrivateRoute exact path={routes.project()} component={ProjectPage} />
               <PrivateRoute hasRole={roles.admin} exact path={routes.admin.users}  component={UsersPage} />
               <Route path ="*" component={NotFoundPage}/>
