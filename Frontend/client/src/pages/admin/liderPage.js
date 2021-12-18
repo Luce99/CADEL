@@ -6,16 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import EditIcon from '@material-ui/icons/Edit'
 import { Button as Btn } from '@material-ui/core'
 import { Button } from 'reactstrap'
-// Cambios
 import {gql, useMutation, useQuery} from '@apollo/client'
 
-
-
-
-const UsersPage = () => {
-  // Cambios
-  //
-  const GetUsuario = gql `
+const LiderPage = () => {
+    const GetUsuario = gql `
     query getusers{
       getUsers {
         _id
@@ -100,7 +94,7 @@ const UsersPage = () => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Rol (Administrador)</TableCell>
+            <TableCell>Rol (Lider)</TableCell>
             <TableCell>Nombre</TableCell>
             <TableCell>Apellido</TableCell>
             <TableCell>Estado</TableCell>
@@ -142,14 +136,6 @@ const UsersPage = () => {
         <h1>Gestión Usuarios</h1>
         <TextField
           className='text-field'
-          label='Rol'
-          variant='filled'
-          required
-          value = {tipoUsuario}
-          onChange={(e) => setRol(e.target.value)}
-        />
-        <TextField
-          className='text-field'
           label='estado de usuario'
           variant='filled'
           required
@@ -182,4 +168,4 @@ const UsersPage = () => {
 )
 }
 
-export default UsersPage
+export default LiderPage

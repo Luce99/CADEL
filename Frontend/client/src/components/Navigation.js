@@ -12,11 +12,13 @@ export default function Navigation(){
            <Navbar.Brand as= {NavLink} to = {routes.home}>Gestor de tareas</Navbar.Brand>
            <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
            <Navbar.Collapse id= "responsive-navbar-nav">
-            <Nav className="mr-auto" >
-                <Nav.Link as={NavLink} to ={routes.projects}>Proyectos
+            <Nav className="me-auto" >
+                <Nav.Link as={NavLink} to ={routes.projects}>Proyectos</Nav.Link>
+                <Nav.Link as={NavLink} to ={routes.InscriptionPage}>Inscripciones
                </Nav.Link>
                <NavDropdown title="Admin">
-               <NavDropdown.Item as={NavLink} to ={routes.admin.users}>Usuarios</NavDropdown.Item>
+               <NavDropdown.Item as={NavLink} to ={routes.users.admin}>Usuarios</NavDropdown.Item>
+               <NavDropdown.Item as={NavLink} to={routes.users.lider}>Lider</NavDropdown.Item>
                </NavDropdown>
                </Nav>
                <Nav>

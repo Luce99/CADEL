@@ -7,9 +7,10 @@ const routes = {
     projects: '/projects',
     InscriptionPage: '/inscription',
     project: (projectId)=> projectId ? `/projects/:${projectId}` : '/projects/:projectId',
-    admin:{
-        users: '/admin/users'
-    }
-};
+    users: {
+        admin: '/admin/users',
+        lider: '/lider/users'
+      }
+      }
 
 export default routes;
