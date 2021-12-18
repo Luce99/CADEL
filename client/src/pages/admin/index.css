@@ -1,0 +1,108 @@
+/* Colors for page*/
+* {
+  --clr-primary-1: hsl(205, 86%, 17%);
+  --clr-primary-2: hsl(205, 77%, 27%);
+  --clr-primary-3: hsl(205, 72%, 37%);
+  --clr-primary-4: hsl(205, 68%, 48%);
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-black: #222;
+}
+
+.main_container {
+  background: linear-gradient(var(--clr-grey-1) 0%, var(--clr-grey-4) 100%);
+  height: 100%;
+  justify-content: center;
+  color: var(--clr-grey-9);
+  position: absolute;
+  display: flex;
+  width: 100%;
+}
+
+.principal-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* .main_table {
+  background: linear-gradient(
+    var(--clr-primary-2) 0%,
+    var(--clr-primary-3) 100%
+  );
+  display: flex;
+  justify-content: center;
+  top: 10%;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  font-size: 30px;
+} */
+
+/* .main-btn {
+  position: relative;
+  top: 60%;
+  left: 5%;
+  width: 170px;
+} */
+
+.main_container h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: -5px;
+}
+
+
+.main_modal {
+  display: table-column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.main_modal form h1 {
+  margin: 20px;
+  color: var(--clr-primary-1);
+}
+
+.main_modal form h1:hover {
+  color: var(--clr-primary-3);
+  cursor: default;
+}
+
+.main_modal form {
+  background: linear-gradient(
+    to top,
+    var(--clr-grey-7) 0%,
+    var(--clr-grey-9) 100%
+  );
+}
+
+.main_modal .text-field {
+  display: flex;
+  margin: 30px;
+  width: 300px;
+  background: white;
+}
+
+.modal-btn {
+  margin-bottom: 5px;
+}
