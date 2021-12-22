@@ -1,3 +1,4 @@
+import React from 'react'
 import {Switch, Route} from 'react-router-dom'
 import AccountPage from '../pages/AccountPage'
 import UsersPage from '../pages/admin/UsersPage'

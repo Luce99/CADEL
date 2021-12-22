@@ -1,6 +1,6 @@
+import React from 'react'
 import {Modal, Alert, Button} from 'react-bootstrap'
 import useAuth from '../../../auth/useAuth'
-
 
 export default function DeleteModal({isOpen, close}){
     

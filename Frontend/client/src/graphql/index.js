@@ -1,35 +1,34 @@
-import { useQuery, useMutation, useLazyQuery } from '@apollo/client'
+import { useQuery, useMutation, useLazyQuery } from "@apollo/client";
 
-export const useQueryMutation = ({query, variables:  id, 
-    estadoInscripcion,
-    fechaIngreso, 
-    fechaEgreso}, 
-  {mutations: { updateInscription }}) => {
+export const useQueryMutation = (
+  { query, variables: id, estadoInscripcion, fechaIngreso, fechaEgreso },
+  { mutations: { updateInscription } }
+) => {
   const {
     data: dataQuery,
     loading: loadingQuery,
     error: errorQuery,
   } = useQuery(query, {
-    variables:   id, 
+    variables: id,
     estadoInscripcion,
-    fechaIngreso, 
-    fechaEgreso
-  })
+    fechaIngreso,
+    fechaEgreso,
+  });
 
-  const [updateRow, { data: dataUpdate, loading: loadingUpdate, error: errorUpdate }] = useMutation(
-    update,
-    {
-      refetchQueries: [{ query, variables: queryVariables }],
-      onCompleted: () => {
-        notification.success({
-          message: 'Success',
-          description: 'Information is updated ',
-        })
-      },
+  const [
+    updateRow,
+    { data: dataUpdate, loading: loadingUpdate, error: errorUpdate },
+  ] = useMutation(update, {
+    refetchQueries: [{ query, variables: queryVariables }],
+    onCompleted: () => {
+      notification.success({
+        message: "Success",
+        description: "Information is updated ",
+      });
     },
-  );
+  });
 
-  const UpdateInscription =  gql`
+  const UpdateInscription = gql`
   mutation updateInscription($id: String!, estadoInscripcion:String!, fechaIngreso:Date!, fechaEgreso:Date!) {
   updateInscripcion(_id: $id, estadoInscripcion: $estadoInscripcion, fechaIngreso: $fechaIngreso, fechaEgreso: $fechaEgreso) {
   _id
@@ -39,22 +38,27 @@ export const useQueryMutation = ({query, variables:  id,
   estudiante
   projects
   }
-  }`
+  }`;
 
   return {
     query: {
       data: dataQuery,
       loading: loadingQuery,
-      error: errorQuery
+      error: errorQuery,
     },
     mutation: {
       update: {
         mutate: updateRow,
         data: dataUpdate,
         loading: loadingUpdate,
-        error: errorUpdate
-      }, 
+        error: errorUpdate,
+      },
     },
-   loading: loadingQuery || loadingAdd || loadingDelete || loadingUpdate || loadingLazyQuery
-  }
-}
+    loading:
+      loadingQuery ||
+      loadingAdd ||
+      loadingDelete ||
+      loadingUpdate ||
+      loadingLazyQuery,
+  };
+};

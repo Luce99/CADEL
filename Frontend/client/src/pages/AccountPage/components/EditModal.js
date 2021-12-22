@@ -1,9 +1,9 @@
+import React from 'react'
 import {Modal, Form, Alert, Button} from 'react-bootstrap'
 import {useForm} from 'react-hook-form'
 import { useEffect } from 'react';
 import editAccountResolver from '../../../validations/editAccountResolver';
 import useAuth from '../../../auth/useAuth';
-
 
 export default function EditModal({isOpen, close, user}){
     const {register, handleSubmit, formState: {errors, dirtyFields}, reset} = useForm({resolver: editAccountResolver});
@@ -114,7 +114,7 @@ export default function EditModal({isOpen, close, user}){
                         <Form.Label>Rol</Form.Label>
                         <Form.Control 
                             as= "select"
-                            disabled={!user?.role==='admin'}
+                            disabled={!user.role==='admin'}
                             {...register("role")}
                       >
                           <option>estudiante</option>

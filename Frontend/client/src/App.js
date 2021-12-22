@@ -1,3 +1,4 @@
+import React from 'react'
 import AppRouter from './routers/AppRouter';
 import AuthProvider from './auth/AuthProvider';
 import {BrowserRouter as Router} from 'react-router-dom'

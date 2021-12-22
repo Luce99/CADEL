@@ -1,3 +1,4 @@
+import React from 'react'
 import { createContext } from "react";
 import { useState } from "react";
 import roles from "../helpers/roles";
@@ -24,7 +25,7 @@ export default function AuthProvider({children}){
     }
 
     const isLogged = () => !! user;
-    const hasRole = (role) => user?.role === role;
+    const hasRole = (role) => user.role === role;
 
     const contextValue = {
         user,

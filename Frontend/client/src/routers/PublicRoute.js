@@ -1,4 +1,5 @@
-import { Redirect, Route, useLocation } from 'react-router-dom';
+import React from 'react'
+import { Redirect, Route } from 'react-router-dom';
 import useAuth from '../auth/useAuth';
 import routes from '../helpers/routes';
 

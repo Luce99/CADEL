@@ -1,111 +1,144 @@
-import {Alert, Button, FormControl} from 'react-bootstrap'
-import {gql, useMutation, useQuery} from '@apollo/client'
-import { Modal, ModalBody, FormGroup, Form} from 'react-bootstrap'
-import { useState, useEffect, Component } from 'react'
+import { useMutation } from "@apollo/client";
+import React, { useState, useEffect } from "react";
+import { Button, FormControl } from "react-bootstrap";
+import { gql } from "@apollo/client";
+import { Modal, ModalBody, FormGroup, Form } from "react-bootstrap";
 
-export default class EditModalInscription extends Component {
+export default function EditModalInscription({
+  isOpen,
+  close,
+  id,
+  estadoInscripcionD,
+  fechaIngresoD, 
+  fechaEgresoD,
+  estudiante,
+  projects,
+}) {
 
-  constructor(props, context) {
-    super(props);
-    this.state={
-    estadoInscripcion : props.estadoInscripcion,
-    fechaIngreso : props.fechaIngreso.substring(0, 10),
-    fechaEgreso : props.fechaEgreso.substring(0, 10)
+  const [estadoInscripcion, setEstadoInscripcion] = useState();
+  const [fechaIngreso, setFechaIngreso] = useState();
+  const [fechaEgreso, setFechaEgreso] = useState();
 
-    }
-    console.log(this.props)
-}
-UpdateInscription =  gql`
-mutation updateInscription($id: String!, estadoInscripcion:String!, fechaIngreso:Date!, fechaEgreso:Date!) {
-updateInscripcion(_id: $id, estadoInscripcion: $estadoInscripcion, fechaIngreso: $fechaIngreso, fechaEgreso: $fechaEgreso) {
-_id
-estadoInscripcion
-fechaIngreso
-fechaEgreso
-estudiante
-projects
-}
-}`
+  useEffect(() => {
+    setEstadoInscripcion(estadoInscripcionD);
+    setFechaIngreso(fechaIngresoD ? fechaIngresoD.substring(0,10) : '');
+    setFechaEgreso(fechaEgresoD ? fechaEgresoD.substring(0,10) : '');
+  }, [estadoInscripcionD, fechaIngresoD, fechaEgresoD])
 
-componentDidMount() {
-  console.log("The componentDidMount method is only fired the first time the component is mounted");
-}
-componentWillReceiveProps(nextProps) {
-  console.log('componentWillReceiveProps', nextProps);
-  if (this.props !== nextProps) {
-   this.setState({
-     ...nextProps,
-    fechaIngreso : nextProps.fechaIngreso.substring(0, 10),
-    fechaEgreso : nextProps.fechaEgreso.substring(0, 10)
-   });
-  }
- }
-
-  render(){
-    var{isOpen, close, id, estadoInscripcion, fechaIngreso, fechaEgreso, estudiante, projects}= this.props
-    
- 
-  return(
-    <div>
-    <Modal show={isOpen} onHide={close}>
-    <Modal.Header closeButton>
-  <div>
-    <h2>Editar inscripción</h2>
-  </div>
-</Modal.Header>
-
-<ModalBody>
-  <Form  onSubmit={this.handleSubmit}>
-  <FormGroup>
-    <label>Id:</label>
-    <input id={+true} className='form-control' name="_id"  readOnly type="text" value= {id}/>
-     </FormGroup>
-
-    <FormGroup> 
-      <label>Estado inscripcion:</label>
-      <FormControl id={+true} className='form-control' name="estadoInscripcion"  type="text" value= {this.state.estadoInscripcion} onChange={evt => this.setState({estadoInscripcion:evt.target.value })}>
-
-      </FormControl>
-    </FormGroup>
-
-    <FormGroup>
-        <label>Fecha ingreso:</label>
-        <input id={+true} className='form-control' name="fechaIngreso"  type="date" value= {this.state.fechaIngreso} onChange={evt => this.state.fechaIngreso=evt.target.value} />
-      </FormGroup>
-
-      <FormGroup>
-        <label>Fecha Egreso:</label>
-        <input id={+true} className='form-control' name="fechaEgreso"  type="date" value= {this.state.fechaEgreso} onChange={evt => this.state.fechaEgreso=evt.target.value} />
-      </FormGroup>
-
-      <FormGroup>
-        <label>Estudiante:</label>
-        <input id={+true} className='form-control' name="estudiante" value= {estudiante} readOnly type="text"/>
-      </FormGroup>
-
-      <FormGroup>
-        <label>Proyectos:</label>
-        <input id={+true} className='form-control' name="projects" value= {projects} readOnly type="text"/>
-      </FormGroup>
-      </Form>
-    </ModalBody>
-    <Modal.Footer>
-            <Button variant="secondary" onClick={close}>Cancelar</Button>
-            <Button variant="primary" onClick={  useMutation(UpdateInscription)}>
- Actualizar</Button>
-        </Modal.Footer>
-    </Modal></div>);
-    }
-    listenerHandler = () => {
-      this.props.mutate({
-          variables: {
-            id:this.props.id, 
-            estadoInscripcion: this.state.estadoInscripcion,
-            fechaIngreso: this.state.fechaIngreso, 
-            fechaEgreso: this.state.fechaEgreso
-          },
-      });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    changeInscription({ variables : { id: id, estadoInscripcion: estadoInscripcion, fechaIngreso: new Date(fechaIngreso).toISOString(), fechaEgreso: new Date(fechaEgreso).toISOString()  }});
+    close()
   };
-    handleSubmit (e) {
-      e.preventDefault()
-      }}
+
+  const UpdateInscription = gql`
+  mutation UpdateInscripcion($id: String!, $estadoInscripcion: String, $fechaIngreso: DateTime, $fechaEgreso: DateTime) {
+    updateInscripcion(_id: $id, estadoInscripcion: $estadoInscripcion, fechaIngreso: $fechaIngreso, fechaEgreso: $fechaEgreso) {
+      _id
+      estadoInscripcion
+      fechaIngreso
+      fechaEgreso
+      estudiante
+      projects
+    }
+  }
+  `;
+
+  const [changeInscription] = useMutation(UpdateInscription);
+
+  return (
+    <>
+      <Modal show={isOpen} onHide={close}>
+        <Modal.Header closeButton>
+          <div>
+            <h2>Editar inscripción</h2>
+          </div>
+        </Modal.Header>
+
+        <ModalBody>
+          <Form>
+            <FormGroup>
+              <label>Id:</label>
+              <FormControl
+                className="form-control"
+                name="_id"
+                readOnly
+                type="text"
+                value={id}
+              ></FormControl>
+            </FormGroup>
+
+            <FormGroup>
+              <label>Estado inscripcion:</label>
+              <FormControl
+                id={+true}
+                className="form-control"
+                name="estadoInscripcion"
+                type="text"
+                value={estadoInscripcion}
+                onChange={(evt) => setEstadoInscripcion(evt.target.value)}
+              ></FormControl>
+            </FormGroup>
+
+            <FormGroup>
+              <label>Fecha ingreso:</label>
+              <FormControl
+                id={+true}
+                className="form-control"
+                name="fechaIngreso"
+                type="date"
+                value={fechaIngreso}
+                onChange={(evt) => setFechaIngreso(evt.target.value)}
+              ></FormControl>
+            </FormGroup>
+
+            <FormGroup>
+              <label>Fecha Egreso:</label>
+              <FormControl
+                id={+true}
+                className="form-control"
+                name="fechaEgreso"
+                type="date"
+                value={fechaEgreso}
+                onChange={(evt) => setFechaEgreso(evt.target.value)}
+              ></FormControl>
+            </FormGroup>
+
+            <FormGroup>
+              <label>Estudiante:</label>
+              <FormControl
+                id={+true}
+                className="form-control"
+                name="estudiante"
+                value={estudiante}
+                readOnly
+                type="text"
+              ></FormControl>
+            </FormGroup>
+
+            <FormGroup>
+              <label>Proyectos:</label>
+              <FormControl
+                id={+true}
+                className="form-control"
+                name="projects"
+                value={projects}
+                readOnly
+                type="text"
+              ></FormControl>
+            </FormGroup>
+          </Form>
+        </ModalBody>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={close}>
+            Cancelar
+          </Button>
+          <Button variant="primary" onClick={handleSubmit}>
+            Actualizar
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+}
+
