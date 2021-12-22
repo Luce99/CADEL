@@ -1,5 +1,7 @@
 import React from "react";
 import { Card, Button, Form } from "react-bootstrap";
+import routes from "../../helpers/routes";
+import { Link } from "react-router-dom";
 
 export default function ({ handleClick }) {
 
@@ -31,7 +33,7 @@ export default function ({ handleClick }) {
                     </Form>
                 </Card.Body>
                 <Card.Footer><p className="registro text-center">
-                ¿No tienes cuenta?  <a href="" onClick={handleClick}>Regístrate</a>
+                ¿No tienes cuenta?  <Button as={Link} to={routes.register} className ="ml-1"> Registate </Button>
                         </p></Card.Footer>
             </Card>
         </div>

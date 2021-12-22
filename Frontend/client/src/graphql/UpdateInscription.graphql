@@ -1,0 +1,11 @@
+  UpdateInscription =  gql`
+    mutation updateInscription($id: String!, estadoInscripcion:String!, fechaIngreso:Date!, fechaEgreso:Date!) {
+    updateInscripcion(_id: $id, estadoInscripcion: $estadoInscripcion, fechaIngreso: $fechaIngreso, fechaEgreso: $fechaEgreso) {
+    _id
+    estadoInscripcion
+    fechaIngreso
+    fechaEgreso
+    estudiante
+    projects
+  }
+}`

@@ -1,7 +1,9 @@
 import React from "react";
 import { Card, Button, Form, Row } from "react-bootstrap";
+import routes from "../../helpers/routes";
+import { Link } from "react-router-dom";
 
-export default function ({ handleClick }) {
+export default function Signup() {
 
     return (
         <div>
@@ -52,7 +54,7 @@ export default function ({ handleClick }) {
                 </Card.Body>
                 <Card.Footer>
                     <p className="registro text-center">
-                        ¿Tienes cuenta?<a href="" onClick={handleClick}>inicia sesión</a>
+                        ¿Tienes cuenta?<Button as={Link} to={routes.login} className ="ml-1"> inicia sesión </Button>
                     </p>
                 </Card.Footer>
             </Card>

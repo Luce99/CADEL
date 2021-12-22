@@ -1,7 +1,9 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Signin from "./login/signin";
 import Signup from "./login/signup";
+import routes from '../helpers/routes'
 
 class LoginPage extends React.Component {
 
@@ -26,7 +28,7 @@ class LoginPage extends React.Component {
 
         return (
             <Container>
-            {showLogin && <Signin handleClick={this.showRegister}/>}
+            {showLogin && <Signin as= {Link} to={routes.register}/>}
             {showRegister && <Signup handleClick={this.showLogin}/>}
             </Container>
 
