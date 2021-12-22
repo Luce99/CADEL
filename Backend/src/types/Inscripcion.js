@@ -28,7 +28,7 @@ type Project {
     owner: ID!
 }
 type Inscripcion {
-    _id: ID!
+    _id: String!
     estadoInscripcion: String!
     fechaIngreso: DateTime!
     fechaEgreso: DateTime!
@@ -48,7 +48,7 @@ createInscripcion(
     projects: String!
     ): Inscripcion
 updateInscripcion (
-    _id: ID!
+    _id: String!
     estadoInscripcion: String
     fechaIngreso: DateTime
     fechaEgreso: DateTime
@@ -56,7 +56,7 @@ updateInscripcion (
     projects: String
     ): Inscripcion
 deleteInscripcion (
-    _id: ID!
+    _id: String!
     estadoInscripcion: String
     fechaIngreso: DateTime
     fechaEgreso: DateTime
